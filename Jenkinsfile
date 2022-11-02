@@ -2,7 +2,7 @@ pipeline {
   agent any
   parameters {
     choice(name: 'VERSION', choices:['1.1', '1.2', '2.0'], description: 'choice version')
-    booleanPara(name: 'executeTests', defaultValue: true, description: 'execute Tests')
+    booleanParam(name: 'executeTests', defaultValue: true, description: 'execute Tests')
   }
   stages {
     stage('Log Tool Version') {
