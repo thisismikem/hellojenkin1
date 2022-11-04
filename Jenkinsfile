@@ -46,7 +46,7 @@ pipeline {
   
   post {
         always {
-            archiveArtifacts artifacts: '**/*.jar'
+            archiveArtifacts artifacts: '**/*.jar, **/*.properties'
         }
     }
   
