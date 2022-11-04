@@ -46,7 +46,7 @@ pipeline {
   
   post {
         always {
-            archiveArtifacts artifacts: '**/*.jar, **/*.properties'
+            archiveArtifacts artifacts: 'status.txt, pom.xml, abc.txt'
         }
     }
   
