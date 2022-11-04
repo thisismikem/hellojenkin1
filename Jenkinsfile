@@ -24,16 +24,16 @@ pipeline {
       }
     }
 
-    stage('Build with Maven') {
-      when {
-        expression {
-          params.executeTests
-        }
-      }
-      steps {
-        sh 'mvn compile test package'
-      }
-    }
+    //stage('Build with Maven') {
+    //  when {
+    //    expression {
+    //      params.executeTests
+    //    }
+    //  }
+    //  steps {
+    //    sh 'mvn compile test package'
+    //  }
+    //}
 
     stage('Post build') {
       steps {
