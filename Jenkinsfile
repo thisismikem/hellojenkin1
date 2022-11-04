@@ -5,24 +5,24 @@ pipeline {
     booleanParam(name: 'executeTests', defaultValue: true, description: 'execute Tests')
   }
   stages {
-    stage('Log Tool Version') {
-      parallel {
-        stage('Log Tool Version') {
-          steps {
-            sh '''mvn --version
-              git --version
-              java -version'''
-          }
-        }
+    //stage('Log Tool Version') {
+    //  parallel {
+    //    stage('Log Tool Version') {
+    //      steps {
+    //        sh '''mvn --version
+    //          git --version
+    //          java -version'''
+    //      }
+    //    }
 
-        stage('Check for POM') {
-          steps {
-            fileExists 'pom.xml'
-          }
-        }
+    //    stage('Check for POM') {
+    //      steps {
+    //        fileExists 'pom.xml'
+    //      }
+    //    }
 
-      }
-    }
+    //  }
+    //}
 
     //stage('Build with Maven') {
     //  when {
@@ -38,7 +38,8 @@ pipeline {
     stage('Post build') {
       steps {
         echo "version is ${params.VERSION}"
-        writeFile(file: 'status.txt', text: 'Hey it worked!!!')
+        writeFile(file: 'report.zip', text: 'this is a zip file?')
+        writeFile(file: 'dockerOutput.txt', text: 'tis is a docker file?')
       }
     }
 
@@ -46,7 +47,7 @@ pipeline {
   
   post {
         always {
-            archiveArtifacts artifacts: 'status.txt, pom.xml, abc.txt'
+            archiveArtifacts artifacts: 'report.zip, dockerOutput.txt, nofile.txt'
         }
     }
   
